@@ -1,0 +1,127 @@
+export type School={
+  id:number;
+  name:string;
+  shortName:string;
+  code?:string;
+  status:'verified'|'reference';
+  note?:string;
+  source?:string;
+};
+
+type Seed={name:string;shortName:string;code?:string};
+
+const seeds:Seed[]=[
+{name:'Trường Đại học Y Dược - ĐHQGHN',shortName:'UMP-VNU',code:'QHY'},
+{name:'Trường Đại học Ngoại ngữ - ĐHQGHN',shortName:'ULIS',code:'QHF'},
+{name:'Trường Đại học Công nghệ - ĐHQGHN',shortName:'UET',code:'QHI'},
+{name:'Trường Đại học Khoa học Tự nhiên - ĐHQGHN',shortName:'HUS',code:'QHT'},
+{name:'Trường Đại học Khoa học Xã hội và Nhân văn - ĐHQGHN',shortName:'USSH',code:'QHX'},
+{name:'Trường Đại học Kinh tế - ĐHQGHN',shortName:'UEB',code:'QHE'},
+{name:'Trường Đại học Giáo dục - ĐHQGHN',shortName:'UED-VNU',code:'QHS'},
+{name:'Trường Đại học Việt Nhật - ĐHQGHN',shortName:'VJU'},
+{name:'Trường Đại học Luật - ĐHQGHN',shortName:'VNU-UL',code:'QHL'},
+{name:'Trường Quốc tế - ĐHQGHN',shortName:'VNU-IS',code:'QHQ'},
+{name:'Trường Quản trị và Kinh doanh - ĐHQGHN',shortName:'HSB',code:'QHD'},
+{name:'Trường Khoa học Liên ngành và Nghệ thuật - ĐHQGHN',shortName:'SIS',code:'QHK'},
+{name:'Trường Đại học Sư phạm - Đại học Thái Nguyên',shortName:'TNUE'},
+{name:'Trường Đại học Kinh tế và Quản trị Kinh doanh - Đại học Thái Nguyên',shortName:'TUEBA'},
+{name:'Trường Đại học Khoa học - Đại học Thái Nguyên',shortName:'TNUS'},
+{name:'Trường Đại học Nông Lâm - Đại học Thái Nguyên',shortName:'TUAF'},
+{name:'Trường Đại học Y Dược - Đại học Thái Nguyên',shortName:'TUMP'},
+{name:'Trường Đại học Ngoại thương',shortName:'FTU',code:'NHT'},
+{name:'Đại học Kinh tế Quốc dân',shortName:'NEU',code:'KHA'},
+{name:'Trường Đại học Hà Nội',shortName:'HANU'},
+{name:'Học viện Ngân hàng',shortName:'BAV',code:'NHH'},
+{name:'Học viện Ngân hàng - Phân viện Bắc Ninh',shortName:'BAV-BN'},
+{name:'Trường Đại học Công nghiệp Hà Nội',shortName:'HaUI',code:'DCN'},
+{name:'Trường Đại học Tài nguyên và Môi trường Hà Nội',shortName:'HUNRE',code:'DMT'},
+{name:'Trường Đại học Thăng Long',shortName:'TLU',code:'DTL'},
+{name:'Trường Đại học Sư phạm Kỹ thuật Hưng Yên',shortName:'UTEHY',code:'SKH'},
+{name:'Trường Đại học Sư phạm Kỹ thuật Nam Định',shortName:'NUTE',code:'SKN'},
+{name:'Trường Đại học Hồng Đức',shortName:'HDU',code:'HDT'},
+{name:'Trường Đại học Công nghiệp Việt Trì',shortName:'VUI'},
+{name:'Trường Đại học Kỹ thuật Y tế Hải Dương',shortName:'HMTU'},
+{name:'Trường Đại học Kinh tế - Kỹ thuật Công nghiệp',shortName:'UNETI'},
+{name:'Trường Đại học Vinh',shortName:'VU',code:'TDV'},
+{name:'Trường Đại học Sư phạm Hà Nội 2',shortName:'HNUE2'},
+{name:'Trường Đại học Điện lực',shortName:'EPU'},
+{name:'Học viện Chính sách và Phát triển',shortName:'APD'},
+{name:'Trường Đại học Mở Hà Nội',shortName:'HOU'},
+{name:'Trường Đại học Nguyễn Tất Thành',shortName:'NTTU'},
+{name:'Trường Đại học Duy Tân',shortName:'DTU',code:'DDT'},
+{name:'Trường Đại học Sư phạm Kỹ thuật Vinh',shortName:'VUTED'},
+{name:'Trường Đại học Lâm nghiệp',shortName:'VNUF'},
+{name:'Trường Đại học Hoa Sen',shortName:'HSU'},
+{name:'Trường Đại học Công nghệ và Quản lý Hữu nghị',shortName:'UTM',code:'DCQ'},
+{name:'Trường Đại học Tài chính - Quản trị Kinh doanh',shortName:'UFBA'},
+{name:'Trường Đại học Công nghiệp Dệt May Hà Nội',shortName:'HTU'},
+{name:'Trường Đại học Công nghệ Vạn Xuân',shortName:'VXUT'},
+{name:'Trường Đại học Quốc tế Bắc Hà',shortName:'BIU'},
+{name:'Trường Đại học Thái Bình',shortName:'TBU'},
+{name:'Trường Đại học Điều dưỡng Nam Định',shortName:'NDUN'},
+{name:'Trường Đại học Tài chính - Quản trị Kinh doanh',shortName:'UFBA'},
+{name:'Học viện Tài chính',shortName:'AOF'},
+{name:'Trường Đại học Hải Phòng',shortName:'HPU'},
+{name:'Trường Đại học Đông Đô',shortName:'DDU'},
+{name:'Trường Đại học Hòa Bình',shortName:'HBU'},
+{name:'Trường Đại học Công nghệ Giao thông Vận tải',shortName:'UTT'},
+{name:'Trường Đại học Công nghệ Đông Á',shortName:'EAUT'},
+{name:'Trường Đại học Quy Nhơn',shortName:'QNU'},
+{name:'Trường Đại học Nam Cần Thơ',shortName:'DNC'},
+{name:'Trường Đại học Kinh tế Nghệ An',shortName:'NAUE'},
+{name:'Trường Đại học Nguyễn Trãi',shortName:'NTU'},
+{name:'Học viện Công nghệ Bưu chính Viễn thông',shortName:'PTIT'},
+{name:'Trường Đại học Kinh Bắc',shortName:'UKB'},
+{name:'Trường Đại học Quảng Bình',shortName:'QBU'},
+{name:'Trường Đại học Phan Châu Trinh',shortName:'PCTU'},
+{name:'Học viện Hàng không Việt Nam',shortName:'VAA'},
+{name:'Trường Đại học Đà Lạt',shortName:'DLU'},
+{name:'Trường Đại học Dầu khí Việt Nam',shortName:'PVU'},
+{name:'Trường Đại học Y tế Công cộng',shortName:'HUPH'},
+{name:'Trường Đại học Nha Trang',shortName:'NTU'},
+{name:'Trường Đại học Yersin Đà Lạt',shortName:'YDU'},
+{name:'Trường Đại học Hoa Lư',shortName:'HLUV'},
+{name:'Trường Đại học Hà Tĩnh',shortName:'HTU'},
+{name:'Học viện Kỹ thuật Quân sự',shortName:'MTA'},
+{name:'Trường Đại học Phenikaa',shortName:'PU'},
+{name:'Trường Đại học Sao Đỏ',shortName:'SDU'},
+{name:'Trường Đại học Thành Đô',shortName:'TDU'},
+{name:'Trường Đại học Công nghiệp Vinh',shortName:'IUV'},
+{name:'Đại học Greenwich Việt Nam',shortName:'Greenwich Vietnam'},
+{name:'Trường Đại học Hàng hải Việt Nam',shortName:'VMU'},
+{name:'Trường Đại học Y Dược Buôn Ma Thuột',shortName:'BMTU'},
+{name:'Học viện Kỹ thuật Quân sự',shortName:'MTA'},
+{name:'Học viện Quân y',shortName:'VMMU'},
+{name:'Học viện Hậu cần',shortName:'LA'},
+{name:'Học viện Biên phòng',shortName:'BPA'},
+{name:'Học viện Khoa học Quân sự',shortName:'MSA'},
+{name:'Học viện Phòng không - Không quân',shortName:'PKKQ'},
+{name:'Học viện Hải quân',shortName:'VNNA'},
+{name:'Trường Sĩ quan Công binh',shortName:'ENG'},
+{name:'Trường Sĩ quan Chính trị',shortName:'LPO'},
+{name:'Trường Sĩ quan Pháo binh',shortName:'AO'},
+{name:'Trường Sĩ quan Lục quân 1',shortName:'TQU'},
+{name:'Trường Sĩ quan Lục quân 2',shortName:'NCO'},
+{name:'Trường Sĩ quan Phòng hóa',shortName:'CCO'},
+{name:'Trường Sĩ quan Không quân',shortName:'AFO'},
+{name:'Trường Sĩ quan Tăng thiết giáp',shortName:'TAC'},
+{name:'Trường Sĩ quan Đặc công',shortName:'SFO'},
+{name:'Trường Sĩ quan Thông tin',shortName:'TCU'},
+{name:'Trường Đại học Y Hà Nội',shortName:'HMU'},
+{name:'Trường Đại học FPT',shortName:'FPTU'},
+{name:'Học viện Quản lý Giáo dục',shortName:'NAEM'},
+{name:'Trường Đại học Mỏ - Địa chất',shortName:'HUMG'}
+];
+
+export const schools:School[]=seeds.map((s,i)=>{
+  const isVnu=i<12;
+  return {
+    id:i+1,
+    ...s,
+    status:isVnu?'verified':'reference',
+    note:isVnu
+      ?'Thuộc ĐHQGHN: có thể đối chiếu bảng phân vị HSA 2026 theo tổ hợp; vẫn cần xem đề án ngành cụ thể.'
+      :'Có trong danh sách cơ sở sử dụng HSA của VNU-IDT. Điểm quy đổi hiển thị chỉ là tham khảo theo bảng phân vị HSA 2026, không thay thế công thức riêng của trường.',
+    source:'https://www.hsa.edu.vn/tra-cuu/truong-dai-hoc-su-dung'
+  };
+});
