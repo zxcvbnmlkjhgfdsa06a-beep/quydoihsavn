@@ -34,7 +34,6 @@ export default function HsaCalculator() {
   const [q, setQ] = useState("");
 
   const school = schools.find((s) => s.id === schoolId)!;
-
   const score = convert(Number(hsa), group);
 
   const filtered = useMemo(
@@ -50,10 +49,31 @@ export default function HsaCalculator() {
   return (
     <div className="wrap">
 
+      {/* HEADER */}
+      <header className="siteHeader">
+        <a href="/" className="siteBrand">
+          <img
+            src="/logo-hsa.png"
+            alt="QuyDoiHSA"
+            className="headerLogo"
+          />
+
+          <div className="brandText">
+            <strong>QuyDoiHSA</strong>
+            <span>Công cụ tra cứu & quy đổi HSA</span>
+          </div>
+        </a>
+
+        <nav className="siteNav">
+          <a href="/">Quy đổi HSA</a>
+          <a href="#schools">Các trường</a>
+        </nav>
+      </header>
+
       {/* HERO */}
       <section className="hero">
         <span className="eyebrow">
-          Công Cụ Quy Đổi HSA - MeefuTech
+          Công Cụ Quy Đổi HSA - LH QC ZALO : 033333.9660
         </span>
 
         <h1>
@@ -75,7 +95,6 @@ export default function HsaCalculator() {
 
         {/* LEFT */}
         <div className="card">
-
           <div className="field">
             <label className="label">
               Trường / cơ sở đào tạo
@@ -97,7 +116,6 @@ export default function HsaCalculator() {
           </div>
 
           <div className="row">
-
             <div className="field">
               <label className="label">
                 Điểm HSA (0–150)
@@ -133,7 +151,6 @@ export default function HsaCalculator() {
                 <option>D01</option>
               </select>
             </div>
-
           </div>
 
           <div className="notice">
@@ -142,12 +159,10 @@ export default function HsaCalculator() {
             “tham khảo” khi chưa có rule riêng được xác minh
             trong project.
           </div>
-
         </div>
 
         {/* RIGHT */}
         <div className="card">
-
           <span
             className={`badge ${
               school.status === "verified"
@@ -179,7 +194,6 @@ export default function HsaCalculator() {
           </div>
 
           <div className="kpis">
-
             <div className="kpi">
               <span className="small">
                 HSA nhập
@@ -199,7 +213,6 @@ export default function HsaCalculator() {
                 {schools.length}
               </strong>
             </div>
-
           </div>
 
           <div className="notice">
@@ -229,16 +242,16 @@ export default function HsaCalculator() {
               Xem thông tin HSA {school.shortName} 2026 →
             </a>
           </div>
-
         </div>
 
       </section>
 
       {/* SCHOOL LIST */}
-      <section className="schools card">
-
+      <section
+        className="schools card"
+        id="schools"
+      >
         <div className="schoolsHeader">
-
           <div>
             <h2>
               Tra cứu quy đổi HSA theo trường
@@ -260,11 +273,9 @@ export default function HsaCalculator() {
               setQ(e.target.value)
             }
           />
-
         </div>
 
         <div className="list">
-
           {filtered.map((s) => {
             const slug = getSchoolSlug(s);
 
@@ -273,14 +284,12 @@ export default function HsaCalculator() {
                 className="schoolItem"
                 key={s.id}
               >
-
                 <div
                   onClick={() =>
                     setSchoolId(s.id)
                   }
                   style={{ cursor: "pointer" }}
                 >
-
                   <b>
                     {s.id}. {s.name} -{" "}
                     {s.shortName}
@@ -295,7 +304,6 @@ export default function HsaCalculator() {
                       ? "ĐHQGHN / có bảng tham chiếu 2026"
                       : "Có sử dụng HSA · cần đối chiếu quy tắc riêng"}
                   </span>
-
                 </div>
 
                 <a
@@ -311,13 +319,10 @@ export default function HsaCalculator() {
                   Xem trang quy đổi HSA{" "}
                   {s.shortName} 2026 →
                 </a>
-
               </div>
             );
           })}
-
         </div>
-
       </section>
 
     </div>
