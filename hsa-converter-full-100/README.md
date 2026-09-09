@@ -1,23 +1,42 @@
-# HSA Converter 2026 - 100 co so
+# QuyDoiHSA v2 - multi-year + school-specific rules
 
-Project Next.js tra cuu 100 co so su dung HSA theo danh sach VNU-IDT.
+Bản này tách rule theo **trường + năm**, để năm 2027 chỉ cần thêm dữ liệu mới vào `data/schoolRules.ts` thay vì sửa calculator.
 
-## Chay
+## Rule riêng 2026 đã cài
+- NEU: bảng khoảng HSA↔THPT, nội suy trong khoảng; ngưỡng HSA 85.
+- FTU: công thức thang 30 `27 + (HSA - 100) * 3 / 50` cho nhóm chương trình phù hợp; một số chương trình tích hợp dùng thang 40/kết hợp khác.
+- UET: các mốc quy đổi riêng 2026 + nội suy giữa mốc.
+- HaUI: bảng HSA từng điểm 75–129, từ 130 trở lên = 30.
+- UTT: 5 khoảng HSA↔THPT, nội suy theo công thức trường.
+- UNETI: 5 khoảng HSA↔THPT, nội suy theo khoảng.
+- BAV: đánh dấu `needs-input`, vì chỉ nhập HSA không đủ để tính điểm xét cuối cùng cho phương thức kết hợp.
+- PTIT/HOU: gắn nguồn riêng, nhưng không đoán dữ liệu nằm trong ảnh/bảng chưa được trích xuất đầy đủ.
+- Các đơn vị ĐHQGHN còn lại: bảng phân vị HSA 2026 theo A00/B00/C00/D01.
+- Trường chưa có rule riêng xác minh: chỉ hiện `THAM KHẢO`, không giả vờ là công thức chính thức.
+
+## Cập nhật cho 2027
+Trong `data/schoolRules.ts`:
+
+```ts
+schoolRules.NEU[2027] = {
+  year: 2027,
+  ...
+}
+```
+
+Sau đó bật option 2027 trong `components/HsaCalculator.tsx`.
+
+## Chạy
+```bash
 npm install
 npm run dev
+```
 
 ## Font
-Chep file SFPRODISPLAYMEDIUM.otf vao public/fonts/.
+Project không đóng gói lại file font. Nếu bạn có quyền sử dụng SF Pro Display trên web, đặt file `SFPRODISPLAYMEDIUM.otf` vào `public/fonts/`.
 
-## Quan trong ve do chinh xac
-- Danh sach 100 co so: theo VNU-IDT (31/12/2025).
-- Bang quy doi A00/B00/C00/D01: bang phan vi HSA 2026 cua DHQGHN, dung de tham chieu.
-- Khong tu gan cong thuc cua DHQGHN cho tat ca truong. Cac truong ngoai DHQGHN duoc danh dau "tham khao - can check rule truong".
-- Khi co cong thuc 2026 rieng cua tung truong, hay them rule rieng vao lib/conversion.ts va cap nhat status trong data/schools.ts.
-
-Nguon tham khao chinh:
-- https://www.hsa.edu.vn/tra-cuu/truong-dai-hoc-su-dung
-- https://hsavnu.edu.vn/quy-doi-diem
-
-## Cách hiển thị tên trường
-Danh sách hiển thị theo dạng `Tên trường - Tên viết tắt`, ví dụ `Đại học Kinh tế Quốc dân - NEU`, `Trường Đại học Ngoại thương - FTU`, `Học viện Công nghệ Bưu chính Viễn thông - PTIT`. Ô tìm kiếm hỗ trợ cả tên đầy đủ, tên viết tắt và mã tuyển sinh nếu có.
+## Bản FIX
+- Đã sửa lỗi CSS `Unknown word` do chuỗi `\\n` bị ghi trực tiếp vào `app/globals.css`.
+- Đã kiểm tra cú pháp toàn bộ file TypeScript/TSX.
+- Đã kiểm tra type cho phần dữ liệu/rule/conversion.
+- Đã kiểm tra CSS bằng parser: không còn lỗi cú pháp.
